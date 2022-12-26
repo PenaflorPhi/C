@@ -1,4 +1,5 @@
-/* Write a program to print the corresponding Celsius to Fahrenheit table*/
+/* Exercise 1-4. Write a program to print the corresponding Celsius to
+ * Fahrenheit table*/
 
 #include <stdio.h>
 
@@ -10,14 +11,14 @@ int main() {
   upper = 300;
   step  = 20;
 
-	celsius = lower;
+  celsius = lower;
 
-	printf(" °C \t °F\n");
-	while(celsius <= upper){
-		fahr = (9.0/5.0) * celsius + 32;
-		printf("%3.0f\t%5.1f\n", celsius, fahr);
-		celsius = celsius + step;
-	}
+  printf(" °C \t °F\n");
+  while (celsius <= upper) {
+    fahr = (9.0 / 5.0) * celsius + 32;
+    printf("%3.0f\t%5.1f\n", celsius, fahr);
+    celsius = celsius + step;
+  }
 
   return 0;
 }
