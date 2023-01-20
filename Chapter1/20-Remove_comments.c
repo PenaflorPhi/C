@@ -12,7 +12,7 @@ void remove_comments(char to[], char from[]);
 int  in_comment = OUT;
 int  in_quotes  = OUT;
 
-int  main() {
+int main() {
   int  length;
   char line[MAXLINE];
   char no_comment_string[MAXLINE];
@@ -54,7 +54,8 @@ int nugetline(char s[], int lim) {
 void remove_comments(char to[], char from[]) {
   extern int in_comment;
   extern int in_quotes;
-  int        j = 0;
+
+  int j = 0;
 
   for (int i = 0; from[i] != '\0'; ++i) {
     if (!in_quotes) {
