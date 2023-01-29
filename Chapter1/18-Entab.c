@@ -26,7 +26,7 @@ int nugetline(char s[], int maxlength) {
   int  i;
   char c;
 
-  for (i = 0; i < MAXLINE - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+  for (i = 0; i < maxlength - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
     s[i] = c;
   }
   if (c == '\n') {
