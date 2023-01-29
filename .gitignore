@@ -1,6 +1,7 @@
 Books/
 Videos/
-Chapter1_1/
+Chapter1_examples/
+Chapter2_examples/
 
 *.out
 test*
