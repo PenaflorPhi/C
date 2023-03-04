@@ -71,7 +71,7 @@ void quicksort(int arr[], int low, int high) {
   }
 }
 
-/*Trivialsearch*/
+/* Trivialsearch */
 int trivialsearch(int x, const int array[]) {
   for (long int i = 0; i < SIZE; ++i) {
     if (array[i] == x) { return i; }
