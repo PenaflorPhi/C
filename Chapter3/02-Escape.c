@@ -6,7 +6,7 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-int  nugetchar(char s[]);
+int  nuggetline(char s[]);
 void escape(char s[], const char t[]);
 void reverse_escape(char s[], const char t[]);
 
@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
   char s[MAXLINE];
   char t[MAXLINE];
 
-  while (nugetchar(s)) {
+  while (nuggetline(s)) {
     escape(t, s);
     printf("%s\n", t);
     reverse_escape(t, s);
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int nugetchar(char s[]) {
+int nuggetline(char s[]) {
   int  i;
   char c;
   for (i = 0; i < MAXLINE - 1 && (c = getchar()) != EOF; ++i) {
@@ -40,17 +40,15 @@ void escape(char s[], const char t[]) {
   int i, j;
   for (i = 0, j = 0; j < MAXLINE - 1; ++i, ++j) {
     switch (t[i]) {
-    case '\n':
-      s[j++] = '\\';
-      s[j]   = 'n';
-      break;
-    case '\t':
-      s[j++] = '\\';
-      s[j]   = 't';
-      break;
-    default:
-      s[j] = t[i];
-      break;
+      case '\n' :
+        s[j++] = '\\';
+        s[j]   = 'n';
+        break;
+      case '\t' :
+        s[j++] = '\\';
+        s[j]   = 't';
+        break;
+      default : s[j] = t[i]; break;
     }
   }
 
@@ -61,24 +59,18 @@ void reverse_escape(char s[], const char t[]) {
   int i, j;
   for (i = 0, j = 0; j < MAXLINE - 1; ++i, ++j) {
     switch (t[i]) {
-    case '\\':
-      switch (t[++i]) {
-      case '\\':
-        s[j++] = '\\';
-        s[j] = '\\';
+      case '\\' :
+        switch (t[++i]) {
+          case '\\' :
+            s[j++] = '\\';
+            s[j]   = '\\';
+            break;
+          case 't' : s[j] = '\t'; break;
+          case 'n' : s[j] = '\n'; break;
+        }
         break;
-      case 't':
-        s[j] = '\t';
-        break;
-      case 'n':
-        s[j] = '\n';
-        break;
-      }
-      break;
 
-    default:
-      s[j] = t[i];
-      break;
+      default : s[j] = t[i]; break;
     }
   }
 }
